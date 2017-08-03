@@ -84,3 +84,7 @@ body {
   border-color: #4cae4c;
   margin: 10px;
 }
+
+.not-found {
+  text-align: center;
+}

@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom'
 import Home from './Home';
+import NotFound from './notfound';
 
 class App extends React.Component {
   render() {
@@ -13,9 +14,7 @@ class App extends React.Component {
         <div className='container'>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route render={function () {
-              return <p>Not found</p>
-            }} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </Router>
