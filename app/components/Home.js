@@ -19,7 +19,7 @@ class Home extends React.Component {
       }
     });
 
-    api.currentWeather(value)
+    api.getCurrentWeather(value)
       .then(function (data) {
         console.log(data);
       })
