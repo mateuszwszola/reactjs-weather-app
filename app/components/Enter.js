@@ -1,4 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Loading from './Loading';
+import api from './utils/api';
 
 class Enter extends React.Component {
   constructor(props) {
@@ -11,10 +15,12 @@ class Enter extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(event) {
-    event.preventDefault();
-
-    this.props.onClick(this.state.inputText);
+  handleClick(value) {
+    this.setState(function () {
+      return {
+        inputText: ''
+      }
+    });
   }
 
   handleChange(event) {
@@ -27,6 +33,8 @@ class Enter extends React.Component {
   }
 
   render() {
+    const city = this.state.inputText;
+
     return (
       <div className='enter-container' style={{ flexDirection: this.props.direction }}>
         <input
@@ -36,16 +44,30 @@ class Enter extends React.Component {
           value={this.state.inputText}
           onChange={this.handleChange}
         />
-        <button
-          className='btn'
-          onClick={this.handleClick}
-          disabled={!this.state.inputText}
-          >
-          Get Weather
-        </button>
+        <Link
+          to={{
+            pathname: 'forecast',
+            search: '?city=' + city
+          }} >
+          <button
+            className='btn'
+            onClick={this.handleClick.bind(null, city)}
+            disabled={!this.state.inputText}
+            >
+            Get Weather
+          </button>
+        </Link>
       </div>
     )
   }
+}
+
+Enter.propTypes = {
+  direction: PropTypes.string.isRequired
+}
+
+Enter.defaultProps = {
+  direction: 'row'
 }
 
 export default Enter;
