@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans');
 
 
 /* <-------- LAYOUT STYLES -------> */
@@ -13,6 +13,10 @@ body {
   width: 100%;
   margin: 0;
   font-family: Arial;
+}
+
+p {
+  font-family: 'Bree Serif', serif;
 }
 
 .container, #app {
@@ -130,8 +134,13 @@ body {
   align-items: center;
 }
 
-.dayContainer img {
+.dayContainer p {
+  font-size: 20px;
+}
+
+.weather {
   width: 150px;
+  padding-top: 30px;
 }
 
 .subheader {

@@ -8,7 +8,6 @@ var utils = require('./utils/helpers');
 var getDate = utils.getDate;
 var convertTemp = utils.convertTemp;
 
-
 function DayForecast(props) {
   const date = getDate(props.day.dt);
   const icon = props.day.weather[0].icon;
@@ -21,7 +20,7 @@ function DayForecast(props) {
 }
 
 DayForecast.propTypes = {
-  name: PropTypes.string
+  onClick: PropTypes.func.isRequired
 }
 
 class Forecast extends React.Component {
@@ -62,11 +61,11 @@ class Forecast extends React.Component {
             data: results
           }
         })
-        console.log(this.state.data);
       }.bind(this));
   }
 
   handleClick(city) {
+    city.city = this.city;
     this.props.history.push({
       pathname: '/detail/' + this.city,
       state: city,
