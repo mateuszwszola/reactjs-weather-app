@@ -1,8 +1,8 @@
 var axios = require('axios');
-var api = require('/weather-app/api.json');
+var api = require('../../../api');
 
-var _baseURL = api._baseURL;
-var _APIKEY = api._APIKEY;
+var _baseURL = api.base;
+var _APIKEY = api.apikey;
 
 function prepRouteParams (queryStringData) {
   return Object.keys(queryStringData)
